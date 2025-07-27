@@ -65,7 +65,7 @@ ELAMS is a comprehensive, enterprise-grade logical access management system desi
 - **Backend**: Python 3.11+ with FastAPI
 - **Database**: PostgreSQL 14+ with Redis for caching
 - **Authentication**: OAuth2/OpenID Connect, JWT tokens
-- **Frontend**: React 18+ with TypeScript
+- **Frontend**: Angular 17+ with TypeScript
 - **Message Queue**: Redis/Celery for async tasks
 - **Monitoring**: Prometheus + Grafana
 - **Deployment**: Docker + Kubernetes ready
@@ -89,9 +89,20 @@ ELAMS is a comprehensive, enterprise-grade logical access management system desi
    python manage.py run-all
    ```
 
-4. **Access Admin Console**
-   - URL: `http://localhost:8000/admin`
-   - Default admin: `admin@elams.local`
+4. **Access Applications**
+   - Backend API: `http://localhost:8000`
+   - Frontend (Angular): `http://localhost:4200`
+   - API Documentation: `http://localhost:8000/docs`
+   - Grafana: `http://localhost:3000` (admin/admin123)
+   - Prometheus: `http://localhost:9090`
+
+5. **Create Admin User**
+   ```bash
+   python manage.py create-admin
+   ```
+   - Username: `admin`
+   - Password: `Admin123!@#`
+   - Email: `admin@elams.local`
 
 ## Security Considerations
 

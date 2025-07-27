@@ -1,0 +1,233 @@
+// Loading Overlay
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+// App Container
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Toolbar
+.app-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  .menu-button {
+    margin-right: 16px;
+  }
+  
+  .app-title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+// User Menu
+.user-menu {
+  .user-info {
+    padding: 12px 16px;
+    
+    .user-name {
+      font-weight: 500;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    
+    .user-email {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+// Sidenav Container
+.sidenav-container {
+  flex: 1;
+  margin-top: 64px; // Height of toolbar
+}
+
+// Sidenav
+.sidenav {
+  width: 260px;
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: #fafafa;
+  
+  mat-nav-list {
+    padding-top: 16px;
+    
+    a.mat-list-item {
+      height: 48px;
+      margin: 4px 8px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+      
+      &.active-link {
+        background-color: rgba(63, 81, 181, 0.12);
+        color: #3f51b5;
+        
+        mat-icon {
+          color: #3f51b5;
+        }
+      }
+      
+      mat-icon {
+        margin-right: 12px;
+        color: rgba(0, 0, 0, 0.54);
+      }
+      
+      span {
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+  
+  .version-info {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    color: rgba(0, 0, 0, 0.38);
+    font-size: 11px;
+  }
+}
+
+// Main Content
+.main-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  .content-wrapper {
+    padding: 24px;
+    min-height: calc(100vh - 64px - 48px); // Full height minus toolbar and padding
+  }
+}
+
+// Auth Container
+.auth-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    z-index: 999;
+  }
+  
+  .main-content .content-wrapper {
+    padding: 16px;
+  }
+  
+  .app-toolbar .app-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content .content-wrapper {
+    padding: 12px;
+  }
+}
+
+// Dark theme support
+.dark-theme {
+  .sidenav {
+    background-color: #424242;
+    border-right-color: rgba(255, 255, 255, 0.12);
+    
+    mat-nav-list a.mat-list-item {
+      color: rgba(255, 255, 255, 0.87);
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+      }
+      
+      &.active-link {
+        background-color: rgba(63, 81, 181, 0.24);
+        color: #7986cb;
+        
+        mat-icon {
+          color: #7986cb;
+        }
+      }
+      
+      mat-icon {
+        color: rgba(255, 255, 255, 0.54);
+      }
+    }
+    
+    .version-info {
+      color: rgba(255, 255, 255, 0.38);
+    }
+  }
+  
+  .user-menu .user-info .user-email {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+// Custom scrollbar
+.main-content {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+// Animations
+.sidenav {
+  transition: width 0.3s ease-in-out;
+}
+
+.content-wrapper {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
